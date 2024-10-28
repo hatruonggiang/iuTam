@@ -29,20 +29,23 @@ function init() {
 
 function firstQuestion() {
     $('.content').hide();
+
     Swal.fire({
         title: CONFIG.introTitle,
-        text: CONFIG.introDesc,
-        imageUrl: 'img/logi.gif',
-        imageWidth: 300,
-        imageHeight: 300,
+        html: `
+            <p>${CONFIG.introDesc}</p>
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <img src="img/257.gif" alt="GIF 1" width="150" height="150">
+                <img src="img/211454.gif" alt="GIF 2" width="150" height="150">
+            </div>
+        `,
         background: '#fff url("img/iput-bg.jpg")',
-        imageAlt: 'Custom image',
         confirmButtonText: CONFIG.btnIntro
     }).then(function() {
         $('.content').show(200);
         var audio = new Audio('sound/sound.mp3');
         audio.play();
-    })
+    });
 }
 
 // switch button position
